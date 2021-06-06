@@ -6,20 +6,20 @@ import com.example.Greeter.Greet
 import com.example.Greeter.Greeted
 import org.scalatest.wordspec.AnyWordSpecLike
 
-//#definition
-class AkkaQuickstartSpec extends ScalaTestWithActorTestKit with AnyWordSpecLike {
-//#definition
+/**
+  * https://doc.akka.io/docs/akka/2.6/typed/testing-async.html
+  */
+class AkkaQuickstartSpec
+    extends ScalaTestWithActorTestKit
+    with AnyWordSpecLike {
 
   "A Greeter" must {
-    //#test
     "reply to greeted" in {
       val replyProbe = createTestProbe[Greeted]()
       val underTest = spawn(Greeter())
       underTest ! Greet("Santa", replyProbe.ref)
       replyProbe.expectMessage(Greeted("Santa", underTest.ref))
     }
-    //#test
   }
 
 }
-//#full-example
