@@ -1,0 +1,1 @@
+Akka Scala Project based on [Akka Actors Quickstart with Scala](https://developer.lightbend.com/guides/akka-quickstart-scala/)
